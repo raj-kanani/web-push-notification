@@ -25,8 +25,6 @@ def test(request):
 
 
 #  firebase notification
-
-
 def send_notification(registration_ids, message_title, message_desc):
     fcm_api = '282806100614'
     url = "https://fcm.googleapis.com/fcm/send"
@@ -50,8 +48,8 @@ def send_notification(registration_ids, message_title, message_desc):
 
 
 def send(request):
-    resgistration = ['BFpts-G9B_Ivup2QJxLVBT2-jRDqYVDOFZbv01IST9F1iYS1p5hPagwokUz4jp5ttjiyeGKsRBUMp5OfveLWuV8']
-    send_notification(resgistration, 'raj kanani demo message', 'this is demo test')
+    registration = ['BFpts-G9B_Ivup2QJxLVBT2-jRDqYVDOFZbv01IST9F1iYS1p5hPagwokUz4jp5ttjiyeGKsRBUMp5OfveLWuV8']
+    send_notification(registration, 'raj kanani demo message', 'this is demo test')
     return HttpResponse("sent")
 
 
@@ -81,5 +79,3 @@ def showFirebaseJS(request):
            '});'
 
     return HttpResponse(data, content_type="text/javascript")
-
-
