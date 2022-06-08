@@ -23,5 +23,3 @@
 #
 # print(response.json())
 
-a = sum(x for x in range(5))
-print(a)

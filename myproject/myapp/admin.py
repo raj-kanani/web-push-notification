@@ -9,3 +9,8 @@ class StudentAdmin(admin.ModelAdmin):
 @admin.register(BroadcastNotification)
 class StudentAdmin(admin.ModelAdmin):
     list_display = ['id', 'message', 'broadcast_on', 'sent']
+
+
+@admin.register(Child)
+class StudentAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'weight']

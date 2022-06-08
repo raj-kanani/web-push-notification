@@ -13,7 +13,7 @@ class Student(models.Model):
 
     def save(self, *args, **kwargs):
         account_sid = 'AC291d18cb63a0783d31db55fc77afce04'
-        auth_token = '17a9d3a6a992f4534e236e59c4d14da5'
+        auth_token = '1ba7775685b7ea66c857909cd8fb8c84'
         client = Client(account_sid, auth_token)
 
         message = client.messages.create(
@@ -47,3 +47,19 @@ def notification_handler(sender, instance, created, **kwargs):
             (crontab=schedule, name="broadcast-notification-" + str(instance.id),
              task="myapp.tasks.broadcast_notification",
              args=json.dumps((instance.id,)))
+
+
+from django.db import models
+
+
+class Child(models.Model):
+    name = models.CharField(max_length=100, verbose_name="Child's First Name and Last Name")
+    weight = models.DecimalField(max_digits=5,decimal_places=0)
+
+    class Meta:
+        db_table = 'new'
+        verbose_name = 'boy'
+        verbose_name_plural = 'MY CHILD'
+
+    def __str__(self):
+        return self.name
